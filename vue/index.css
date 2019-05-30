@@ -1,0 +1,4 @@
+@charset 'utf-8';
+
+#app li { cursor:pointer; }
+.completed { color:#ddd; text-decoration:line-through; }

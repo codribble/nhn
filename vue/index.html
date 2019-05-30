@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Vue Basic</title>
+<link rel="stylesheet" href="./index.css">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div id="counterView">
+			<span>Total : {{totalCount}}</span>
+			<span>Complete : {{completeCount}}</span>
+			<span>Incomplete : {{incompleteCount}}</span>
+		</div>
+
+		<div id="controllView">
+			<select v-model="todoContext">
+				<option>HOME</option>
+				<option>OFFICE</option>
+				<option>ETC</option>
+			</select>
+
+			<input type="text" v-model="todoInputValue">
+			<button type="button" @click="addTodo">Add</button>
+		</div>
+
+		<ul>
+			<li v-for="(todo, index) in todos" @click="toggleCompleted(todo)" :class="{ completed : todo.complete }"><input type="checkbox" v-model="todo.complete"> <strong>{{todo.context}}</strong> {{todo.title}} <delete-button :index="index" @delete-todo="onDeleteTodo"></li>
+		</ul>
+	</div>
+
+	<!-- <div id="computed">{{sum}}</div> -->
+
+	<script src="./index.js"></script>
+</body>
+</html>
